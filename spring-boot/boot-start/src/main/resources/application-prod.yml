@@ -1,0 +1,9 @@
+application:
+  name: production environment - @artifactId@
+  version: production environment - @version@
+  developer: production environment - jason(weijunqiang2010@foxmail.com)
+developer:
+  name: production environment - junqiang wei
+  website: production environment - http://code-dok.com
+  qq: production environment -  659194256
+  phone-number: production environment - 15920985866

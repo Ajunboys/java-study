@@ -1,0 +1,9 @@
+application:
+  name: development environment - @artifactId@
+  version: development environment - @version@
+  developer: development environment - jason(weijunqiang2010@foxmail.com)
+developer:
+  name: development environment - junqiang wei
+  website: development environment - http://code-dok.com
+  qq: development environment - 659194256
+  phone-number: development environment - 15920985866
