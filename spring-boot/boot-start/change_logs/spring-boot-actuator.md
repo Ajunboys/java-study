@@ -214,7 +214,13 @@ management:
 
 \3. 其余可访问的路径，参见文档
 
+访问地址改为：
 
+http://localhost:8090/actuator/beans
+
+http://localhost:8090/actuator/mappings 
+
+http://localhost:8090/actuator/health
 
 **## 参考**
 
