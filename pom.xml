@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.codedok</groupId>
+	<artifactId>java-study</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>java-study</name>
+	 <packaging>pom</packaging>
+	<description>java study project</description>
+	<properties>
+		<developer>jason(weijunqiang2010@foxmail.com)</developer>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>11</java.version>
+	</properties>
+ 
+
+  <modules>
+    <module>java8-tutorial</module>
+    <module>spring-boot</module>
+  </modules>
+ 
+ </project>

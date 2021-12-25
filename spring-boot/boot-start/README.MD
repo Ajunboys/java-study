@@ -3,7 +3,7 @@
 ## 构建项目
 访问 https://start.spring.io/ 初始手脚搭建
 
-## pom.xml
+### pom.xml
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -114,3 +114,89 @@
 </project>
 
 ```
+
+### application.yml
+```sh
+# web server config
+server:
+  port: 8181
+  servlet:
+    context-path: /web
+```
+打开浏览器访问 http://localhost:8181/web
+
+
+## 加入 actuator 检查项目运行情况
+
+### pom.xml
+```xml
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+				
+```
+### application.yml
+```sh
+# Logging
+logging:
+  file: app.log
+
+# web server config
+server:
+  port: 8181
+  servlet:
+    context-path: /web
+    
+# spring config    
+spring:
+  profiles:
+    active:
+    - prod
+  # Spring Security default user name and password 
+  security:
+    user:
+      name: admin
+      password: 123456!
+      roles:
+      - ACTUATOR_ADMIN
+# INFO ENDPOINT CONFIGURATION
+info: 
+  app: 
+    name: n @project.name@
+    description: d @project.description@
+    version: v @project.version@
+    encoding: e @project.build.sourceEncoding@
+    java: 
+      version: v @java.version@
+      
+management:
+  # 端点信息接口使用的端口，为了和主系统接口使用的端口进行分离
+  # 访问地址：http://localhost:8090/actuator/health
+  server:
+    port: 8090
+  # 端点健康情况，默认值"never"，设置为"always"可以显示硬盘使用情况和线程情况
+  endpoint:
+    health:
+      show-details: always
+    shutdown: 
+      enabled: true
+  # 设置端点暴露的哪些内容，默认["health","info"]，设置"*"代表暴露所有可访问的端点
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+```
+访问地址：
+> http://localhost:8090/actuator/ http://localhost:8090/actuator/health http://localhost:8090/actuator/beans
